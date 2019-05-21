@@ -56,7 +56,7 @@ public class OrdineModelDS implements OrdineModel
 	}
 
 	@Override
-	public  synchronized OrdineBean doRetriveByKey(int code) throws SQLException
+	public  synchronized OrdineBean doRetrieveByKey(int code) throws SQLException
 	{
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
@@ -93,7 +93,7 @@ public class OrdineModelDS implements OrdineModel
 	}
 
 	@Override
-	public  ArrayList<OrdineBean> doRetriveAll(String order) throws SQLException {
+	public  ArrayList<OrdineBean> doRetrieveAll(String order) throws SQLException {
 
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
