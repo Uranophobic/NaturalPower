@@ -60,6 +60,14 @@ public class ProdottoBean {
 		this.sconto = sconto;
 	}
 	
+	public String getCaricamento(){
+		return dataCaricamento;
+	}
+	
+	public void setCaricamento(String dataCaricamento){
+		this.dataCaricamento = dataCaricamento;
+	}
+	
 	public String getImmaginePath(){
 		return immaginePath;
 	}
@@ -70,10 +78,10 @@ public class ProdottoBean {
 
 	public String toString() {
 		return "PRODOTTO [IDProdotto=" + idProdotto + ", Nome=" + nome + ", Descrizione=" + descrizione
-				+ ", Categoria=" + categoria + ", Prezzo=" + prezzo + ", IVA=" + iva + ", Sconto=" + sconto+ ", PathImmagine=" + immaginePath + "]";
+				+ ", Categoria=" + categoria + ", Prezzo=" + prezzo + ", IVA=" + iva + ", Sconto=" + sconto+ ", DataCaricamento =" + dataCaricamento + ", PathImmagine=" + immaginePath + "]";
 	}
 
-	private String idProdotto, nome, descrizione, categoria, immaginePath;
+	private String idProdotto, nome, descrizione, categoria, dataCaricamento, immaginePath;
 	private double prezzo, iva;
 	private int sconto;
 
