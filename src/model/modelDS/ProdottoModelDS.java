@@ -15,22 +15,23 @@ import java.util.GregorianCalendar;
 import model.ProdottoModel;
 import model.beans.ProdottoBean;
 
-
 public class ProdottoModelDS implements ProdottoModel {
 
 	private static DataSource ds;
 	private static final String TABLE_NAME = "prodotto";
 	
 	static {
+		
 		try {
 
 			// ci vanno cose
 
 		} catch (Exception e){
+			
 			//ci vanno altre cose
+			
 		}
 	}
-
 
 	@Override
 	public synchronized void doSave(ProdottoBean prod) throws SQLException {
@@ -39,7 +40,7 @@ public class ProdottoModelDS implements ProdottoModel {
 		PreparedStatement preparedStatement = null;
 		
 		String insertSQL = "INSERT INTO " + ProdottoModelDS.TABLE_NAME
-				+ " (IDProdotto, Nome, Descrizione, TipoProdotto, Prezzo, Sconto, Iva, ImmaginePath) "
+				+ " (IDProdotto, Nome, Descrizione, Categoria, Prezzo, Sconto, Iva, ImmaginePath) "
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
@@ -50,7 +51,7 @@ public class ProdottoModelDS implements ProdottoModel {
 			preparedStatement.setString(1, prod.getIdProdotto());
 			preparedStatement.setString(2, prod.getNome());
 			preparedStatement.setString(3, prod.getDescrizione());
-			preparedStatement.setString(4, prod.getTipoProdotto());
+			preparedStatement.setString(4, prod.getCategoria());
 			preparedStatement.setDouble(5, prod.getPrezzo());
 			preparedStatement.setInt(6, prod.getSconto());
 			preparedStatement.setDouble(7, prod.getIva());
@@ -61,6 +62,7 @@ public class ProdottoModelDS implements ProdottoModel {
 			connection.commit();
 			
 		} finally {
+			
 			try {
 				
 				if(preparedStatement != null)
@@ -72,6 +74,7 @@ public class ProdottoModelDS implements ProdottoModel {
 					connection.close();
 				
 			}
+			
 		}
 		
 	}
@@ -110,6 +113,7 @@ public class ProdottoModelDS implements ProdottoModel {
 				
 				if (connection != null)
 					connection.close();
+				
 			}
 		}
 		
@@ -139,7 +143,7 @@ public class ProdottoModelDS implements ProdottoModel {
 				bean.setIdProdotto(rs.getString("IDProdotto"));
 				bean.setNome(rs.getString("Nome"));
 				bean.setDescrizione(rs.getString("Descrizione"));
-				bean.setTipoProdotto(rs.getString("TipoProdotto"));
+				bean.setCategoria(rs.getString("Categoria"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setSconto(rs.getInt("Sconto"));
 				bean.setIva(rs.getDouble("Iva"));
@@ -148,6 +152,7 @@ public class ProdottoModelDS implements ProdottoModel {
 			}
 
 		} finally {
+			
 			try {
 				
 				if (preparedStatement != null)
@@ -157,6 +162,7 @@ public class ProdottoModelDS implements ProdottoModel {
 				
 				if (connection != null)
 					connection.close();
+				
 			}
 		}
 
@@ -191,7 +197,7 @@ public class ProdottoModelDS implements ProdottoModel {
 				bean.setIdProdotto(rs.getString("IDProdotto"));
 				bean.setNome(rs.getString("Nome"));
 				bean.setDescrizione(rs.getString("Descrizione"));
-				bean.setTipoProdotto(rs.getString("TipoProdotto"));
+				bean.setCategoria(rs.getString("Categoria"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setSconto(rs.getInt("Sconto"));
 				bean.setIva(rs.getDouble("Iva"));
@@ -200,6 +206,7 @@ public class ProdottoModelDS implements ProdottoModel {
 				products.add(bean);
 				
 			}
+			
 		} finally {
 			
 			try {
@@ -213,6 +220,7 @@ public class ProdottoModelDS implements ProdottoModel {
 					connection.close();
 				
 			}
+			
 		}
 		
 		return products;
@@ -227,7 +235,7 @@ public class ProdottoModelDS implements ProdottoModel {
 		int result = 0;
 		
 		String selectSQL = "UPDATE " + ProdottoModelDS.TABLE_NAME + " SET Nome = ? , Descrizione = ? ," +
-				"TipoProdotto = ? , Prezzo = ? , Sconto = ? ," +
+				"Categoria = ? , Prezzo = ? , Sconto = ? ," +
 				"Iva = ? , ImmaginePath = ? "+ 
 				"WHERE IDProdotto = ?";
 		
@@ -238,7 +246,7 @@ public class ProdottoModelDS implements ProdottoModel {
 
 			preparedStatement.setString(1, prod.getNome());
 			preparedStatement.setString(2, prod.getDescrizione());
-			preparedStatement.setString(3, prod.getTipoProdotto());
+			preparedStatement.setString(3, prod.getCategoria());
 			preparedStatement.setDouble(4, prod.getPrezzo());
 			preparedStatement.setInt(5, prod.getSconto());
 			preparedStatement.setDouble(6, prod.getIva());
@@ -262,6 +270,7 @@ public class ProdottoModelDS implements ProdottoModel {
 				if (connection != null)
 					connection.close();
 			}
+			
 		}
 		
 		return result; // ritorna uno se è andato tutto ok altrimenti 0 

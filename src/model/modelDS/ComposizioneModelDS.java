@@ -14,7 +14,7 @@ import model.beans.ComposizioneBean;
 public class ComposizioneModelDS implements ComposizioneModel {
 
 	private static DataSource ds;
-	private static final String TABLE_NAME="composizione";
+	private static final String TABLE_NAME = "composizione";
 
 	@Override
 	public void doSave(ComposizioneBean composition) throws SQLException {
@@ -22,9 +22,9 @@ public class ComposizioneModelDS implements ComposizioneModel {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
-		String insertSQL="INSERT INTO"+ComposizioneModelDS.TABLE_NAME
-				+"( idOrdine, idProdotto, quantità, prezzoUnitario, scontoAttuale, ivaAttuale )"
-				+"VALUES(?,?,?,?,?,?)";
+		String insertSQL="INSERT INTO " + ComposizioneModelDS.TABLE_NAME
+				+" (idOrdine, idProdotto, quantità, prezzoUnitario, scontoAttuale, ivaAttuale) "
+				+"VALUES(?, ?, ?, ?, ?, ?)";
 
 		try {
 
@@ -39,15 +39,19 @@ public class ComposizioneModelDS implements ComposizioneModel {
 			preparedStatement.executeUpdate();
 
 
-		}finally {
+		} finally {
+
 			try {
+
 				if(preparedStatement!=null)
 					preparedStatement.close();
-			}finally {
+
+			} finally {
+
 				if(connection!=null)
 					connection.close();
-			}
 
+			}
 
 		}
 
@@ -55,24 +59,26 @@ public class ComposizioneModelDS implements ComposizioneModel {
 
 	@Override
 	public ArrayList<ComposizioneBean> doRetriveAll(String order) throws SQLException {
-		
-		Connection connection=null;
-		PreparedStatement preparedStatement=null;
-		
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
 		ArrayList<ComposizioneBean> components = new ArrayList<ComposizioneBean>();
 		String selectSQL = "SELECT * FROM " + ComposizioneModelDS.TABLE_NAME;
 
 		if (order != null && !order.equals("")) {
 			selectSQL += " ORDER BY " + order;
 		}
+
 		try {
+
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(selectSQL);
-			
+
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				
+
 				ComposizioneBean bean = new ComposizioneBean();
 
 				bean.setIdOrdine(rs.getInt("idOrdine"));
@@ -84,19 +90,25 @@ public class ComposizioneModelDS implements ComposizioneModel {
 			}
 
 		} finally {
+
 			try {
+
 				if (preparedStatement != null)
 					preparedStatement.close();
+
 			} finally {
+
 				if (connection != null)
 					connection.close();
+
 			}
+
 		}
-		
+
 		return components;
-		
-	}
-	
+
 	}
 
-   
+}
+
+
