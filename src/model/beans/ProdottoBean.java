@@ -28,12 +28,12 @@ public class ProdottoBean {
 		this.descrizione = descrizione;
 	}
 	
-	public String getTipoProdotto() {
-		return tipoProdotto;
+	public String getCategoria() {
+		return categoria;
 	}
 	
-	public void setTipoProdotto(String tipoProdotto) {
-		this.tipoProdotto = tipoProdotto;
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 	
 	public double getPrezzo() {
@@ -70,10 +70,10 @@ public class ProdottoBean {
 
 	public String toString() {
 		return "PRODOTTO [IDProdotto=" + idProdotto + ", Nome=" + nome + ", Descrizione=" + descrizione
-				+ ", TipoDiProdotto=" + tipoProdotto + ", Prezzo=" + prezzo + ", IVA=" + iva + ", Sconto=" + sconto+ ", PathImmagine=" + immaginePath + "]";
+				+ ", Categoria=" + categoria + ", Prezzo=" + prezzo + ", IVA=" + iva + ", Sconto=" + sconto+ ", PathImmagine=" + immaginePath + "]";
 	}
 
-	private String idProdotto, nome, descrizione, tipoProdotto, immaginePath;
+	private String idProdotto, nome, descrizione, categoria, immaginePath;
 	private double prezzo, iva;
 	private int sconto;
 

@@ -12,28 +12,12 @@ public class SpecificaProdottoBean {
 		this.idProdotto = idProdotto;
 	}
 
-	public String getTipoFiore() {
-		return tipoFiore;
+	public String getTipo() {
+		return tipo;
 	}
 	
-	public void setTipoFiore(String tipoFiore) {
-		this.tipoFiore = tipoFiore;
-	}
-	
-	public String getTipoPianta() {
-		return tipoPianta;
-	}
-	
-	public void setTipoPianta(String tipoPianta) {
-		this.tipoPianta = tipoPianta;
-	}
-	
-	public String getTipoAccessorio() {
-		return tipoAccessorio;
-	}
-	
-	public void setTipoAccessorio(String tipoAccessorio) {
-		this.tipoAccessorio = tipoAccessorio;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	
 	public String getColoreFiore() {
@@ -61,12 +45,11 @@ public class SpecificaProdottoBean {
 	}
 
 	public String toString() {
-		return "SPECIFICAPRODOTTO [IDProdotto=" + idProdotto + ", TipoDiFiore=" + tipoFiore + ", TipoDellaPianta="
-				+ tipoPianta + ", TipoDiAccessorio=" + tipoAccessorio + ", ColoreDelFiore=" + coloreFiore + ", TipoDelloStelo="
+		return "SPECIFICAPRODOTTO [IDProdotto=" + idProdotto + ", Tipo=" + tipo + ", ColoreDelFiore=" + coloreFiore + ", TipoDelloStelo="
 				+ tipoStelo + ", GrandezzaDellaPianta=" + grandezzaPianta + "]";
 	}
 
 	private String idProdotto;
-	private String tipoFiore, tipoPianta, tipoAccessorio;
+	private String tipo;
 	private String coloreFiore, tipoStelo, grandezzaPianta;
 }
