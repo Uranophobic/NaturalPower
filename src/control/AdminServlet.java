@@ -80,7 +80,7 @@ public class AdminServlet extends HttpServlet {
 				int mese = dataOdierna.get(Calendar.MONTH);
 				int giorno = dataOdierna.get(Calendar.DAY_OF_MONTH);
 
-				String caricamento = giorno + "-" + mese + "-" + anno;
+				String caricamento = anno + "-" + mese + "-" + giorno;
 
 				prodotto.setNome(nome);
 				prodotto.setDescrizione(descrizione);
