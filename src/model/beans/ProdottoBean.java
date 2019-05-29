@@ -1,5 +1,7 @@
 package model.beans;
 
+import java.util.GregorianCalendar;
+
 public class ProdottoBean {
 
 	public ProdottoBean() {}
@@ -68,11 +70,11 @@ public class ProdottoBean {
 		this.sconto = sconto;
 	}
 
-	public String getCaricamento(){
+	public GregorianCalendar getDataCaricamento() {
 		return dataCaricamento;
 	}
 
-	public void setCaricamento(String dataCaricamento){
+	public void setDataCaricamento(GregorianCalendar dataCaricamento) {
 		this.dataCaricamento = dataCaricamento;
 	}
 
@@ -89,9 +91,10 @@ public class ProdottoBean {
 				+ ", Categoria=" + categoria + ", Prezzo=" + prezzo + ", Disponibilità="+ disponibilità + ", IVA=" + iva + ", Sconto=" + sconto+ ", DataCaricamento =" + dataCaricamento + ", PathImmagine=" + immaginePath + "]";
 	}
 
-	private String idProdotto, nome, descrizione, categoria, dataCaricamento, immaginePath;
+	private String idProdotto, nome, descrizione, categoria, immaginePath;
 	private double prezzo, iva;
 	private int sconto, disponibilità;
+	private GregorianCalendar dataCaricamento;
 
 
 }
