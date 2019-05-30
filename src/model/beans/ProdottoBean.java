@@ -88,7 +88,9 @@ public class ProdottoBean {
 
 	public String toString() {
 		return "PRODOTTO [IDProdotto=" + idProdotto + ", Nome=" + nome + ", Descrizione=" + descrizione
-				+ ", Categoria=" + categoria + ", Prezzo=" + prezzo + ", Disponibilità="+ disponibilità + ", IVA=" + iva + ", Sconto=" + sconto+ ", DataCaricamento =" + dataCaricamento + ", PathImmagine=" + immaginePath + "]";
+				+ ", Categoria=" + categoria + ", Prezzo=" + prezzo + ", Disponibilità="+ disponibilità
+				+ ", IVA=" + iva + ", Sconto=" + sconto+ ", DataCaricamento =" + dataCaricamento
+				+ ", PathImmagine=" + immaginePath + "]";
 	}
 
 	private String idProdotto, nome, descrizione, categoria, immaginePath;
