@@ -99,6 +99,38 @@ public class UtenteBean {
 	public void setDataScadenzaCarta(String dataScadenzaCarta) {
 		this.dataScadenzaCarta = dataScadenzaCarta;
 	}
+	public String getTipoCarta() {
+		return tipoCarta;
+	}
+
+	public void setTipoCarta(String tipoCarta) {
+		this.tipoCarta = tipoCarta;
+	}
+
+	public String getCodiceCVV() {
+		return codiceCVV;
+	}
+	public void setCodiceCVV(String codiceCVV) {
+		this.codiceCVV = codiceCVV;
+	}
+
+	public String getDatiDiPagamento() {
+		return datiDiPagamento;
+	}
+
+	public void setDatiDiPagamento(String datiDiPagamento) {
+		this.datiDiPagamento = datiDiPagamento;
+	}
+
+	public String getDatiDiSpedizione() {
+		return datiDiSpedizione;
+	}
+
+	public void setDatiDiSpedizione(String datiDiSpedizione) {
+		this.datiDiSpedizione = datiDiSpedizione;
+	}
+	
+	
 
 	public String toString() {
 		return "UTENTE [E-mail=" + email + ", Password=" + password + ", Nome=" + nome + ", Cognome=" + cognome
@@ -110,5 +142,9 @@ public class UtenteBean {
 	private String email, password;
 	private String nome, cognome, sesso, CF, dataNascita;
 	private String indirizzo, città, CAP;
-	private String numeroCarta, dataScadenzaCarta;
+	private String numeroCarta, dataScadenzaCarta,tipoCarta,codiceCVV;
+	private String datiDiPagamento, datiDiSpedizione;
+	
+
+	
 }
