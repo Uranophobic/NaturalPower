@@ -12,6 +12,8 @@ public interface ProdottoModel {
 	public void doDelete(String code) throws SQLException;
 	
 	public ProdottoBean doRetrieveByKey(String key) throws SQLException;
+
+	public ArrayList<ProdottoBean> doRetrieveByCategoria(String categ) throws SQLException;
 	
 	public ArrayList<ProdottoBean> doRetrieveAll(String order) throws SQLException;
 

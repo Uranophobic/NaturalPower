@@ -227,6 +227,60 @@ public class ProdottoModelDS implements ProdottoModel {
 		
 	}
 
+	public synchronized ArrayList<ProdottoBean> doRetrieveByCategoria(String categ) throws SQLException {
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ArrayList<ProdottoBean> products = new ArrayList<ProdottoBean>();
+
+		String selectSQL = "SELECT * FROM " + ProdottoModelDS.TABLE_NAME + " WHERE Categoria = ?";
+
+		try {
+
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+
+			preparedStatement.setString(1, categ);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				
+				ProdottoBean bean = new ProdottoBean();
+
+				bean.setIdProdotto(rs.getString("IDProdotto"));
+				bean.setNome(rs.getString("Nome"));
+				bean.setDescrizione(rs.getString("Descrizione"));
+				bean.setCategoria(rs.getString("Categoria"));
+				bean.setPrezzo(rs.getDouble("Prezzo"));
+				bean.setSconto(rs.getInt("Sconto"));
+				bean.setIva(rs.getDouble("Iva"));
+				bean.setImmaginePath(rs.getString("ImmaginePath"));
+				
+				products.add(bean);
+				
+			}
+
+		} finally {
+			
+			try {
+				
+				if (preparedStatement != null)
+					preparedStatement.close();
+				
+			} finally {
+				
+				if (connection != null)
+					connection.close();
+				
+			}
+		}
+
+		return products;
+	}
+
+	
 	@Override
 	public synchronized int doUpdate(ProdottoBean prod) throws SQLException {
 		

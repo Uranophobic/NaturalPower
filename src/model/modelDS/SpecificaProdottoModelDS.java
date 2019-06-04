@@ -206,6 +206,55 @@ public class SpecificaProdottoModelDS implements SpecificaProdottoModel {
 		return products;
 		
 	}
+	
+public synchronized ArrayList<SpecificaProdottoBean> doRetrieveByTipo(String tipo) throws SQLException {
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ArrayList<SpecificaProdottoBean> products = new ArrayList<SpecificaProdottoBean>();
+		
+		String selectSQL = "SELECT * FROM " + SpecificaProdottoModelDS.TABLE_NAME + "WHERE Tipo = ?";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+
+			preparedStatement.setString(1, tipo);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			while (rs.next()) {
+				
+				SpecificaProdottoBean bean = new SpecificaProdottoBean();
+				
+				bean.setIdProdotto(rs.getString("IDProdotto"));
+				bean.setTipo(rs.getString("Tipo"));
+				bean.setColoreFiore(rs.getString("ColoreFiore"));
+				bean.setTipoStelo(rs.getString("TipoStelo"));
+				bean.setGrandezzaPianta(rs.getString("GrandezzaPianta"));
+				
+				products.add(bean);
+				
+			}
+		} finally {
+			
+			try {
+				
+				if (preparedStatement != null)
+					preparedStatement.close();
+				
+			} finally {
+				
+				if(connection != null)
+					connection.close();
+				
+			}
+		}
+		
+		return products;
+		
+	}
 
 	@Override
 	public synchronized int doUpdate(SpecificaProdottoBean prod) throws SQLException {

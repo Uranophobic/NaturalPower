@@ -15,6 +15,8 @@ public interface SpecificaProdottoModel {
 	
 	public ArrayList<SpecificaProdottoBean> doRetrieveAll(String order) throws SQLException;
 
+	public ArrayList<SpecificaProdottoBean> doRetrieveByTipo(String tipo) throws SQLException;
+	
 	public int doUpdate(SpecificaProdottoBean prod) throws SQLException;
 
 }
