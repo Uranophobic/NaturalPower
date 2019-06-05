@@ -56,7 +56,32 @@ public class LoginServlet extends HttpServlet
 				String password=req.getParameter("password");
 				System.out.println(password);
 				// viene effuttuata la ricerca dell'utente in base alla mail inserita
-				utente=model.doRetrieveByKey(email);
+				//	utente=model.doRetrieveByKey(email);
+
+				ArrayList<UtenteBean> utentiAll=model.doRetrieveAll(email);
+				for(int i=0; i<utentiAll.size();i++) {
+					if(utentiAll.get(i).getEmail().equals(email) && utentiAll.get(i).getPassword().equals(password)) {
+
+						/*
+						 * email e password inserite, utente loggato istanziare tutte le sessioni
+						 */
+
+					}else if(utentiAll.get(i).getEmail().equals(email)&&(!utentiAll.get(i).getPassword().equals(password)||(utentiAll.get(i).getPassword().equals(null)))) {
+
+						//email corretta, password errata o nulla
+					}else if((!utentiAll.get(i).getEmail().equals(email)||(utentiAll.get(i).getEmail().equals(null))&&(utentiAll.get(i).getPassword().equals(password)))) {
+						
+						//email errata o nulla, password corretta= accesso negato
+					}else if(!(utentiAll.get(i).getEmail().equals(email)&&(utentiAll.get(i).getPassword().equals(password)))) {
+						
+						//email e password errate, accesso negato.
+						
+					}else if(utentiAll.get(i).getEmail().equals(null)&&(utentiAll.get(i).getPassword().equals(null))) {
+						//email e password non inserite
+					}
+				}
+
+
 
 				//effettuo controlli
 				if(!utente.getEmail().equals(null)) {
