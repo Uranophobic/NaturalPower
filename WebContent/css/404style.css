@@ -68,6 +68,7 @@ a:hover:after, a:focus:after {
 }
 
 /* contenitore rosa */
+	
 .contenitore {	
 	position: relative;
 	background: #fbf2eb;
@@ -75,7 +76,7 @@ a:hover:after, a:focus:after {
 	border-width: thin;
 	border-color: black;
 	border-style: solid;
-	width: 520px;
+	width: 60%;
 	padding: 25px;
 	margin: 0 auto;
   	z-index: 10;
@@ -92,4 +93,25 @@ a:hover:after, a:focus:after {
     display: inline-block;
     border-spacing: 0;
     border-collapse: collapse;
+}
+
+/* codice responsive */
+@media screen and (max-width: 800px) {
+  .linea {
+    width: 70%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .contenitore {
+  	width: 50%;
+  	top: -1.8em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .linea {
+    width: 50%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .contenitore {
+  	width: 40%;
+  	top: -2.8em;
+  }
 }
