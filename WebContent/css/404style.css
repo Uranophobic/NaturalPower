@@ -59,18 +59,14 @@ a:hover:after, a:focus:after {
 /* classe per centrare box nella pagina */
 .centrato {
 	text-align: center;
-	width: 900px;
+	max-width: 900px;
 	height: 300px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -150px 0 0 -450px;
+	padding-top: 130px;
+	margin: 0 auto;
 }
 
 /* contenitore rosa */
-	
 .contenitore {	
-	position: relative;
 	background: #fbf2eb;
 	text-align: center;
 	border-width: thin;
@@ -79,13 +75,14 @@ a:hover:after, a:focus:after {
 	width: 60%;
 	padding: 25px;
 	margin: 0 auto;
+	position: relative;
   	z-index: 10;
   	top: -1.3em;
 }
 
 /* linea sotto il contenitore rosa */
 .linea {
-	position:relative;
+	position: relative;
 	z-index:20;
     height:1px;
     width:100%;
@@ -95,23 +92,16 @@ a:hover:after, a:focus:after {
     border-collapse: collapse;
 }
 
-/* codice responsive */
-@media screen and (max-width: 800px) {
-  .linea {
-    width: 70%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-  .contenitore {
-  	width: 50%;
-  	top: -1.8em;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .linea {
-    width: 50%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-  .contenitore {
-  	width: 40%;
-  	top: -2.8em;
-  }
+@media (max-width: 824px) {
+	.contenitore {
+		top: -1.8em;
+	}	
+@media (max-width: 473px) {
+	.contenitore {
+		top: -1.8em;
+	}		
+@media (max-width: 372px) {
+	.contenitore {
+		top: -2.4em;
+	}
 }
