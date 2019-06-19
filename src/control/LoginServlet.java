@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet
 		 */
 		if(azioneLogin.equals("accedi")) {
 			try {
-				//vengono presi i riferimenti alla mail e la password insieriti dall'utente.
+				//vengono presi i riferimenti alla mail e la password inseriti dall'utente.
 				String email=req.getParameter("email");
 				System.out.println(email);
 				String password=req.getParameter("password");
@@ -62,40 +62,13 @@ public class LoginServlet extends HttpServlet
 				for(int i=0; i<utentiAll.size();i++) {
 					if(utentiAll.get(i).getEmail().equals(email) && utentiAll.get(i).getPassword().equals(password)) {
 
-						/*
-						 * email e password inserite, utente loggato istanziare tutte le sessioni
-						 */
-
-					}else if(utentiAll.get(i).getEmail().equals(email)&&(!utentiAll.get(i).getPassword().equals(password)||(utentiAll.get(i).getPassword().equals(null)))) {
-
-						//email corretta, password errata o nulla
-					}else if((!utentiAll.get(i).getEmail().equals(email)||(utentiAll.get(i).getEmail().equals(null))&&(utentiAll.get(i).getPassword().equals(password)))) {
-						
-						//email errata o nulla, password corretta= accesso negato
-					}else if(!(utentiAll.get(i).getEmail().equals(email)&&(utentiAll.get(i).getPassword().equals(password)))) {
-						
-						//email e password errate, accesso negato.
-						
-					}else if(utentiAll.get(i).getEmail().equals(null)&&(utentiAll.get(i).getPassword().equals(null))) {
-						//email e password non inserite
-					}
-				}
-
-
-
-				//effettuo controlli
-				if(!utente.getEmail().equals(null)) {
-					System.out.println("email corretta");
-					//controllo password
-					if(utente.getPassword().equals(password)) {
-						System.out.println(utente.getPassword());
-
 						resp.setContentType("text/html;charset=utf-8");
-						resp.getWriter().write("successo");
+						resp.getWriter().write("le credenziali inserite risultano corrette, accesso effettuato");
 
-						//in questo caso vengono settate le sessioni
-
-						//sessione dell'utente loggato
+						System.out.println("Login effettuato correttamente");
+						/*
+						 * email e password inserite correttamente, l'utente viene  loggato pertanto vengono istanziate tutte le sessioni
+						 */
 						req.getSession().setAttribute("UtenteLoggato", utente);
 
 						//sessione di tutte le attività che può svolgere
@@ -112,23 +85,43 @@ public class LoginServlet extends HttpServlet
 						req.getSession().setAttribute("i miei ordini", ordini);
 						RequestDispatcher view = req.getRequestDispatcher("Loginjsp.jsp");
 						view.forward(req, resp);
-					}else {
-						//password inserita errate
+
+					}else if(utentiAll.get(i).getEmail().equals(email)&&(!utentiAll.get(i).getPassword().equals(password)||(utentiAll.get(i).getPassword().equals(null)))) {
+
+						//email corretta, password errata o nulla
 						resp.setContentType("text/html;charset=utf-8");
 						resp.getWriter().write("passwordErrata");
 
-						System.out.println("Password Errata");
+						System.out.println("Password Errata, accesso negato");
+
+					}else if((!utentiAll.get(i).getEmail().equals(email)||(utentiAll.get(i).getEmail().equals(null))&&(utentiAll.get(i).getPassword().equals(password)))) {
+
+						//email errata o nulla, password corretta= accesso negato
+
+						resp.setContentType("text/html;charset=utf-8");
+						resp.getWriter().write("emailErrata");
+
+						System.out.println("Email  Errata, accesso negato");
+					}else if(!(utentiAll.get(i).getEmail().equals(email)&&(utentiAll.get(i).getPassword().equals(password)))) {
+
+						//email e password errate, accesso negato.
+						resp.setContentType("text/html;charset=utf-8");
+						resp.getWriter().write("emailErrata e password errata");
+
+						System.out.println(" Email Errata e Password Errata, accesso negato");
+					}else if(utentiAll.get(i).getEmail().equals(null)&&(utentiAll.get(i).getPassword().equals(null))) {
+						//email e password non inserite
+
+						resp.setContentType("text/html;charset=utf-8");
+						resp.getWriter().write("le credenziali di accesso non sono state inseriti");
+
+						System.out.println("Le credenziali di accesso non sono state inserite, accesso negato");
 					}
-
-				}else {
-					//email e password errate
-					resp.setContentType("text/html;charset=utf-8");
-					resp.getWriter().write("no");
-
-					System.out.println("Email NO");
-					//response.sendRedirect("index.jsp");
-
 				}
+
+
+
+
 			}catch(SQLException e) {
 				e.printStackTrace();
 			}
@@ -138,8 +131,7 @@ public class LoginServlet extends HttpServlet
 		{
 			//si "chiude" la sessione e l'utene viene reindirizzato alla pagina iniziale
 			req.getSession().invalidate();
-			//resp.sendRedirect(jsp)
-
+			//resp.sendRedirect(jsp
 		}
 
 
