@@ -5,7 +5,7 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:400,600,700" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/htlm"; charset="ISO-8859-1">
-<link rel="stylesheet" href="css/404style.css">
+<link rel="stylesheet" href="css/errorStyle.css">
 
 
 
@@ -17,8 +17,8 @@
 		<div class ="linea">
 		<h1 class="contenitore">OOPS! RISORSA NON TROVATA </h1>
 		</div>
-		<h3>Error 404: Not found</h3>	
-		<br>
+		<h3 class="sottotitolo"	>Error 404: Not found</h3>	
+		
 		<a href="index.html"> Torna indietro</a>
 		<br>oppure<br>
 		<a href="index.html"> Torna alla Home</a>	

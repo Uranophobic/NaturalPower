@@ -131,7 +131,7 @@ public class LoginServlet extends HttpServlet
 		{
 			//si "chiude" la sessione e l'utene viene reindirizzato alla pagina iniziale
 			req.getSession().invalidate();
-			//resp.sendRedirect(jsp
+			resp.sendRedirect("index.jsp");
 		}
 
 

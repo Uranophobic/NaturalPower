@@ -92,7 +92,7 @@ public class UtenteServlet extends HttpServlet
 					RequestDispatcher view = req.getRequestDispatcher("jsp");//index.jsp
 					view.forward(req, resp);
 				}else {
-					resp.sendRedirect("login.jsp");
+					resp.sendRedirect("Registrati.jsp");
 				}
 
 

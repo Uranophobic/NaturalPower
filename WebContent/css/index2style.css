@@ -1,0 +1,103 @@
+@charset "ISO-8859-1";
+
+body{
+	font-family: 'Josefin Slab', sans-seirf; 
+	line-height: 35px;
+	font-size: 20px;
+}
+/*
+per richiamare una classe definita all'interno di una jsp, si fa .nomedellaclasse
+*/
+.contenitore{
+	
+	background: #fbf2eb;
+	text-align: center;
+
+	width: 60%;
+	padding: 25px;
+	margin: 0 auto;
+	position: relative;
+  	z-index: 10;
+  	top: -1.3em;
+  		border: 1px solid black;
+	border-radius: 100px;
+  	
+}
+
+
+.centrato {
+	text-align: center;
+	max-width: 900px;
+	padding-top: 50px;
+	margin: 0 auto;
+	margin-bottom: 80px;
+}
+
+/*
+richiamo titolo di nuovi arrivi compreso fra h1
+*/
+
+.linea {
+	position: relative;
+	z-index:20;
+    height:1px;
+    width:100%;
+    background-color:black;
+    display: inline-block;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+/*
+per richiamare l'id di un qualcosa definito nella jsp, # più nome dell'id
+*/
+
+.contenitoremomento{
+	
+	background: #fbf2eb;
+	text-align: center;
+	border-width: thin;
+	border-color: black;
+	border-style: solid;
+	width: 60%;
+	padding: 25px;
+	margin: 0 auto;
+	position: relative;
+  	z-index: 10;
+  	top: -1.3em;
+  		border: 1px solid black;
+	border-radius: 100px;
+  	
+}
+
+
+.centratomomento{
+	text-align: center;
+	max-width: 900px;
+	padding-top: 330px;
+	margin: 0 auto;
+
+	
+}
+
+/*
+richiamo titolo di nuovi arrivi compreso fra h1
+*/
+
+.lineamomento {
+	
+	position: relative;
+	z-index:20;
+    height:1px;
+    width:100%;
+    background-color:black;
+    display: inline-block;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+p {
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+
