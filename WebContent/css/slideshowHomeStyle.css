@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+body {
+	font-family: 'Josefin Slab', sans-serif;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+	width: 70%;
+	margin: auto;
+}
+
+.carousel-indicators {
+	bottom: auto;
+	top: 90%;
+	
+
+}
+
+
+/** roba in più */
+.carousel-caption {
+	text-shadow: 1px 1px 1px #333;
+	color: red;	
+}
+
+
+.carousel_top {
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: white;
+    text-shadow: 1px 1px 1px #333;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    }
+
